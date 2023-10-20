@@ -8,4 +8,4 @@
 
 1. オブジェクト表現が与えるメモリシステムへの影響 - [`memory.scala`](src/memory.scala)
 
-1. グラフィックス - [`graphics.scala`](src/graphics.scala)
+1. `class Complex` の応用例：グラフィックス - [`graphics.scala`](src/graphics.scala)
