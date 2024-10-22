@@ -34,7 +34,7 @@ import prg1.lx05.ex02b_complex2.Complex
 object ex05bMandelbrot extends AbstractGraphicsApp {
   def draw(image: BufferedImage): Unit = {
     val T = 256
-    val COL = 200
+    val COL = 100
     for (x <- 0 until W)
       for (y <- 0 until H) {
         val c = new Complex(2.2 * x / W - 1.7, 2.2 * y / H - 1.1)
