@@ -4,35 +4,39 @@ import java.awt.Dimension
 import java.awt.image.BufferedImage
 import javax.swing.{ImageIcon, JFrame, JLabel, WindowConstants}
 
-abstract class AbstractGraphicsApp extends App {
-  val W = 1024
-  val H = 1024
+abstract class AbstractGraphicsApp {
+  val W: Int = 1024
+  val H: Int = 1024
 
   def draw(image: BufferedImage): Unit
 
-  val image = new BufferedImage(W, H, BufferedImage.TYPE_INT_RGB)
-  draw(image)
+  def run(): Unit = {
+    val image = new BufferedImage(W, H, BufferedImage.TYPE_INT_RGB)
+    draw(image)
 
-  val frame = new JFrame("Graphics Example")
-  frame.getContentPane().add(new JLabel(new ImageIcon(image)))
-  frame.setPreferredSize(new Dimension(W + 50, H + 50))
-  frame.pack()
-  frame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE)
-  frame.setVisible(true)
+    val frame = new JFrame("Graphics Example")
+    frame.getContentPane().add(new JLabel(new ImageIcon(image)))
+    frame.setPreferredSize(new Dimension(W + 50, H + 50))
+    frame.pack()
+    frame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE)
+    frame.setVisible(true)
+  }
 }
 
 object ex05aRainbow extends AbstractGraphicsApp {
-  def draw(image: BufferedImage): Unit = {
+  override def draw(image: BufferedImage): Unit = {
     for (x <- 0 until W)
       for (y <- 0 until H)
         image.setRGB(x, y, (x << 16) + (y << 8) + 128)
   }
 }
 
+@main def ex05aRainbowMain(): Unit = ex05aRainbow.run()
+
 import prg1.lx05.ex02b_complex2.Complex
 
 object ex05bMandelbrot extends AbstractGraphicsApp {
-  def draw(image: BufferedImage): Unit = {
+  override def draw(image: BufferedImage): Unit = {
     val T = 256
     val COL = 100
     for (x <- 0 until W)
@@ -54,3 +58,5 @@ object ex05bMandelbrot extends AbstractGraphicsApp {
       }
   }
 }
+
+@main def ex05bMandelbrotMain(): Unit = ex05bMandelbrot.run()
