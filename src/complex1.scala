@@ -1,4 +1,4 @@
-package prg1.lx05.ex02a_complex1
+package prg1.lx05.ex02_complex1
 
 import scala.math._
 
@@ -31,8 +31,19 @@ class Complex(_re: Double, _im: Double) {
   def -(c: Complex) = minus(c)
   def -(x: Double)  = new Complex(re - x, im)
 
-  def ==(c: Complex) = re == c.re && im == c.im
-  def ==(x: Double): Boolean = this==(new Complex(x, 0))
+  override def equals(obj: Any): Boolean = obj match {
+    case c: Complex => re == c.re && im == c.im
+    case x: Double => re == x && im == 0
+    case _ => false
+  }
+
+  override def hashCode(): Int = {
+    val prime = 31
+    var result = 1
+    result = prime * result + re.hashCode()
+    result = prime * result + im.hashCode()
+    result
+  }
 
   def unary_- = neg
 
@@ -62,5 +73,5 @@ object Complex {
   println(s"$c4")
 
   println(s"$c1 == $c1 = ${c1 == c1}")
-  println(s"${new Complex(2, 0)} == 2 = ${new Complex(2, 0) == 2}")
+  // println(s"${new Complex(2, 0)} == 2 = ${new Complex(2, 0) == 2}")   // Complex 対 Int の型エラーになる
 }

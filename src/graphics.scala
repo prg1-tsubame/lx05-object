@@ -33,7 +33,7 @@ object ex05aRainbow extends AbstractGraphicsApp {
 
 @main def ex05aRainbowMain(): Unit = ex05aRainbow.run()
 
-import prg1.lx05.ex02b_complex2.Complex
+import prg1.lx05.ex02_complex2.Complex
 
 object ex05bMandelbrot extends AbstractGraphicsApp {
   override def draw(image: BufferedImage): Unit = {
@@ -42,7 +42,7 @@ object ex05bMandelbrot extends AbstractGraphicsApp {
     for (x <- 0 until W)
       for (y <- 0 until H) {
         val c = new Complex(2.2 * x / W - 1.7, 2.2 * y / H - 1.1)
-        var z = new Complex(0, 0);
+        var z = new Complex(0, 0)
         var color = 0
         var i = 0
         while (i < T) {

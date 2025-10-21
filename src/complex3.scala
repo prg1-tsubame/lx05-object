@@ -1,15 +1,13 @@
-package prg1.lx05.ex02_complex2
+package prg1.lx05.ex02_complex3
 
 import scala.math._
 
-// 複素数のクラスの実装例2
-class Complex(_re: Double, _im: Double) {
-  def re = _re
-  def im = _im
+// 複素数のクラスの実装例3 - クラス宣言で val 引数を用いた作例
+class Complex(val re: Double, val im: Double) {
 
-  // クラスの引数(_re, _im)を利用して定義した例
+  // クラスの引数(re, im)を利用して定義した例
   def plus(c: Complex): Complex = {
-    new Complex(_re + c.re, _im + c.im)
+    new Complex(re + c.re, im + c.im)
   }
 
   // re, im関数を利用して定義した例
@@ -20,7 +18,7 @@ class Complex(_re: Double, _im: Double) {
   def neg: Complex = { new Complex(-re, -im) }
 
   def abs = { sqrt(re*re + im*im) }
-  
+
   override def toString(): String = {
     if (im >= 0) {
       f"($re%.01f+$im%.01fi)"

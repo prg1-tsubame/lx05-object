@@ -30,11 +30,9 @@ object iphone6 {
   val tethering = "Hopefully"
 }
 
-object t1Simple {
-  def main(arguments: Array[String]): Unit = {
-    println(nexus6.name)
-    println(iphone6.name)
-  }
+@main def t1Simple = {
+  println(nexus6.name)
+  println(iphone6.name)
 }
 
 class SmartPhone(
