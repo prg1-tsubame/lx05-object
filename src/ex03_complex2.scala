@@ -1,4 +1,4 @@
-package prg1.lx05.ex02_complex2
+package prg1.lx05.ex03_complex2
 
 import scala.math._
 
@@ -39,7 +39,6 @@ class Complex(_re: Double, _im: Double) {
 
   override def equals(obj: Any): Boolean = obj match {
     case c: Complex => re == c.re && im == c.im
-    case x: Double => re == x && im == 0
     case _ => false
   }
 
@@ -60,8 +59,20 @@ class Complex(_re: Double, _im: Double) {
   def *(x: Double): Complex = { new Complex(re * x , im * x) }
 }
 
-@main def run = {
+object Complex {
   def fromPolar(r: Double, theta: Double): Complex = {
     new Complex(r * cos(theta), r * sin(theta))
   }
+}
+
+@main def run = {
+  val c1 = new Complex(2, 1)
+  val c2 = new Complex(1, -2)
+  println(s"$c1 + $c2 = ${c1 + c2}")
+  println(s"$c1 - $c2 = ${c1 - c2}")
+  println(s"$c1 * $c2 = ${c1 * c2}")
+  println(s"|$c1| = ${c1.abs}")
+  println(s"-$c1 = ${-c1}")
+  println(s"fromPolar(1, Pi) = ${Complex.fromPolar(1, Pi)}")
+  println(s"$c1 == $c1 = ${c1 == c1}")
 }

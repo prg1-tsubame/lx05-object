@@ -1,4 +1,4 @@
-package prg1.lx05.graphics
+package prg1.lx05.ex06_graphics
 
 import java.awt.Dimension
 import java.awt.image.BufferedImage
@@ -23,7 +23,7 @@ abstract class AbstractGraphicsApp {
   }
 }
 
-object ex05aRainbow extends AbstractGraphicsApp {
+object ex06aRainbow extends AbstractGraphicsApp {
   override def draw(image: BufferedImage): Unit = {
     for (x <- 0 until W)
       for (y <- 0 until H)
@@ -31,11 +31,11 @@ object ex05aRainbow extends AbstractGraphicsApp {
   }
 }
 
-@main def ex05aRainbowMain(): Unit = ex05aRainbow.run()
+@main def ex06aRainbowMain(): Unit = ex06aRainbow.run()
 
-import prg1.lx05.ex02_complex2.Complex
+import prg1.lx05.ex03_complex2.Complex
 
-object ex05bMandelbrot extends AbstractGraphicsApp {
+object ex06bMandelbrot extends AbstractGraphicsApp {
   override def draw(image: BufferedImage): Unit = {
     val T = 256
     val COL = 100
@@ -59,4 +59,4 @@ object ex05bMandelbrot extends AbstractGraphicsApp {
   }
 }
 
-@main def ex05bMandelbrotMain(): Unit = ex05bMandelbrot.run()
+@main def ex06bMandelbrotMain(): Unit = ex06bMandelbrot.run()

@@ -33,7 +33,6 @@ class Complex(_re: Double, _im: Double) {
 
   override def equals(obj: Any): Boolean = obj match {
     case c: Complex => re == c.re && im == c.im
-    case x: Double => re == x && im == 0
     case _ => false
   }
 
@@ -73,5 +72,5 @@ object Complex {
   println(s"$c4")
 
   println(s"$c1 == $c1 = ${c1 == c1}")
-  // println(s"${new Complex(2, 0)} == 2 = ${new Complex(2, 0) == 2}")   // Complex 対 Int の型エラーになる
+  // println(s"${new Complex(2, 0)} == 2 = ${new Complex(2, 0) == 2}")   // Complex 同士でしか等しくならないので false になる（hashCode との整合性のため Double とは比較しない）
 }

@@ -1,8 +1,8 @@
-package prg1.lx05.ex02c_memory
+package prg1.lx05.ex05_memory
 
 import prg1.lx05.ex02_complex1.{Complex => Complex1}
-import prg1.lx05.ex02_complex2.{Complex => Complex2}
-import prg1.lx05.ex02_complex3.{Complex => Complex3}
+import prg1.lx05.ex03_complex2.{Complex => Complex2}
+import prg1.lx05.ex04_complex3.{Complex => Complex3}
 
 object MemoryTest {
   val runtime = scala.sys.runtime
